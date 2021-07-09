@@ -1,0 +1,22 @@
+﻿@model mvcDERS.Models.Urun
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="base fill">
+            <img src="~/img/@Model.resim" />
+        </div>
+        
+
+    </div>
+    <div class="col-md-8" style="">
+        <h2 class="page-header">
+            @Model.UrunAdi
+        </h2>
+        <p>
+            @Model.Aciklama
+        </p>
+        <p>
+            @Model.Fiyat
+        </p>
+    </div>
+</div>

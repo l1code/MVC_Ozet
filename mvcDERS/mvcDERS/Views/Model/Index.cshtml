@@ -1,0 +1,74 @@
+﻿@using mvcDERS.Models;
+@model  UrunKategoriModel
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<div class="container">
+    <h2>Urunler</h2>
+
+    <div class="alert alert-primary" role="alert">
+
+        <strong>@Model.UrunSayisi</strong> adet ürün listelendi.
+
+    </div>
+
+
+
+    <div class="row ">
+
+        
+   
+            @foreach (var urun in Model.urunler)
+            {
+
+               
+                    <div class="col-sm-6 col-md-4" style="margin-bottom:20px">
+                        <div class="card  " style="width: 18rem;">
+                            <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">@urun.UrunAdi</h5>
+                                <hr />
+                                <p class="card-text">
+
+                                    @if (urun.Aciklama.Length > 50)
+                                    {
+                                        @(urun.Aciklama.Substring(0, 47) + "...")
+                                    }
+                                    else
+                                    {
+                                        @urun.Aciklama
+                                    }
+
+
+
+
+                                </p>
+
+                                @*<a href="/Model/Details/@urun.UrunId" class="btn btn-primary">Go somewhere</a>*@
+
+                                @Html.ActionLink("Ürünü incele","Details",new { id=urun.UrunId},new { @class="btn btn-primary"})
+                            </div>
+                        </div>
+                    </div>
+                
+
+
+            }
+        
+
+    </div>
+
+
+
+    @*<ul>
+            @foreach (var urun in Model)
+            {
+                <li>@urun  </li>
+            }
+
+        </ul>*@
+
+</div>
+
